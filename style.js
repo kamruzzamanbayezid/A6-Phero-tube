@@ -7,7 +7,6 @@ const handleTabBar = async () => {
       const tabContainer = document.getElementById('tab-container');
 
       data.data.forEach(category => {
-            // console.log(category);
             const div = document.createElement('div');
             div.innerHTML = `
             <a onclick="handleCategoryNews('${category.category_id}')" class="tab">${category.category}</a>
@@ -20,7 +19,6 @@ const handleTabBar = async () => {
 const handleCategoryNews = async (categoryId) => {
       const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
       const data = await response.json();
-      console.log(data.data);
 
       const noDataContainer = document.getElementById('no-data-container');
       noDataContainer.innerHTML = '';
@@ -40,13 +38,12 @@ const handleCategoryNews = async (categoryId) => {
 
       data.data.forEach(categoryNews => {
 
-            // console.log(categoryNews);
             const div = document.createElement('div');
             div.innerHTML = `
             <div class="bg-base-100">
-                  <div class="position-relative">
+                  <div class="relative">
                         <img class="w-[312px] h-[200px] mx-auto" src="${categoryNews.thumbnail}" alt="Shoes" />
-                        <p class="text-white bg-black w-fit px-1 rounded" id="posted-date">${categoryNews.others?.posted_date || ''}</p>
+                        <p class="text-white absolute top-[83%] left-[30%] bg-[#171717] w-fit px-1 rounded" id="posted-date">${categoryNews.others.posted_date}</p>
                   </div>
                   <div class=" mt-5">
                         <div class="flex gap-3 md:pl-7 lg:pl-0 justify-between">
@@ -65,13 +62,21 @@ const handleCategoryNews = async (categoryId) => {
             `;
 
             const postedDate = div.querySelector('#posted-date');
-            const postedDateText = postedDate.innerText;
+            const postedDateText = parseFloat(postedDate.innerText);
             const hours = Math.floor(postedDateText / 3600);
             const minutes = Math.floor((postedDateText % 3600) / 60);
-            postedDate.innerText = `${hours} hours and ${minutes} minutes`;
+            postedDate.innerText = `${hours} hours and ${minutes} minutes ago`;
+                  
+            if(postedDate.innerText === 'NaN hours and NaN minutes ago'){
+                  postedDate.classList.add('hidden');
+            }
 
             newsContainer.appendChild(div);
       });
+};
+
+const handleMyBlog = () => {
+      window.location.href = 'blog.html';
 };
 
 
@@ -79,14 +84,3 @@ const handleCategoryNews = async (categoryId) => {
 
 handleTabBar();
 handleCategoryNews(1000);
-
-const totalSeconds = 13885;
-
-// Calculate hours and minutes
-const hours = Math.floor(totalSeconds / 3600);
-const minutes = Math.floor((totalSeconds % 3600) / 60);
-
-// console.log(`${hours} hours and ${minutes} minutes`);
-
-
-
