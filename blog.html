@@ -11,41 +11,133 @@
       <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="container mx-auto bg-gray-800 h-screen p-4">
+<body class="container mx-auto bg-gray-800  p-4">
       <header>
-            <h1 class="text-center text-white font-bold text-5xl mt-10">Welcome to my <span class="text-[#FF1F3D]">Blog</span>!!
+            <h1 class="text-center text-white font-bold text-5xl mt-10">Welcome to my <span
+                        class="text-[#FF1F3D]">Blog</span>!!
             </h1>
       </header>
 
       <main class="mt-20">
-            <div>
-                  <h3 class="text-center text-3xl font-normal text-white mb-6">Q1: Discuss the scope of var, let, and const</h3>
-            </div>
-            <div class="card-container flex justify-center gap-6">
-                  <!-- card 1 -->
-                  <div class="card bg-base-100 shadow-xl">
-                        <div class="card-body">
-                              <h2 class="card-title">Card title!</h2>
-                              <p>If a dog chews shoes whose shoes does he choose?</p>
-                        </div>
+            <!-- Section 1 || Discuss the scope of var, let, and const -->
+            <section>
+                  <div>
+                        <h3 class="text-center text-3xl font-normal underline text-white mb-6">Q1: Discuss the scope of
+                              var, let,
+                              and const:</h3>
                   </div>
+                  <div class="card-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+                        <!-- card 1 -->
+                        <div class="card bg-base-100 shadow-xl">
+                              <div class="card-body">
+                                    <h2 class="card-title font-bold">Var:</h2>
+                                    <p class="space-y-2 text-lg font-normal">
+                                          Variable declare with <strong>var</strong> is both function scope and global
+                                          scope. <strong>Var</strong> is a global variable. We can access it
+                                          from anywhere. If we need to re-declare and re-assign a variable then we will
+                                          use <strong>var</strong> variable. Using <strong>var</strong> is not a good
+                                          practise.
+                                    </p>
+                              </div>
+                        </div>
 
-                  <!-- card 2 -->
-                  <div class="card bg-base-100 shadow-xl">
-                        <div class="card-body">
-                              <h2 class="card-title">Card title!</h2>
-                              <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <!-- card 2 -->
+                        <div class="card bg-base-100 shadow-xl">
+                              <div class="card-body">
+                                    <h2 class="card-title font-bold">Let:</h2>
+                                    <p class="space-y-2 text-lg font-normal">
+                                          Variable declare with <strong>let</strong> is block scope variable. They
+                                          are accessible only within the block (enclosed by curly braces).
+                                          Although we can re-assign it but we can not re-declare it. Use
+                                          <strong>let</strong> instead if <strong>var</strong>
+                                    </p>
+                              </div>
                         </div>
-                  </div>
 
-                  <!-- card 3 -->
-                  <div class="card bg-base-100 shadow-xl">
-                        <div class="card-body">
-                              <h2 class="card-title">Card title!</h2>
-                              <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <!-- card 3 -->
+                        <div class="card bg-base-100 shadow-xl">
+                              <div class="card-body">
+                                    <h2 class="card-title font-bold">Const:</h2>
+                                    <p class="space-y-2 text-lg font-normal">
+                                          Variable declare with <strong>const</strong> is also block scope variable. The
+                                          Value of
+                                          <strong>const</strong> variable is fixed. We can not re-declare and re-assign
+                                          it. The value of <strong>const</strong> variable array and object's property
+                                          or element can be modified. Use <strong>const</strong> instead of
+                                          <strong>var</strong> and <strong>let</strong>
+                                          when your values are fixed.
+                                    </p>
+                              </div>
                         </div>
                   </div>
-            </div>
+            </section>
+
+            <!-- Section 2 || Tell us the use cases of null and undefined -->
+            <section class="my-10">
+                  <div>
+                        <h3 class="text-center text-3xl font-normal underline text-white mb-6">Q2: The use cases of null
+                              and undefined:</h3>
+                  </div>
+                  <div class=" flex flex-col lg:flex-row justify-center gap-6">
+                        <!-- Card 1 -->
+                        <div class="card bg-base-100 shadow-xl flex-1">
+                              <div class="card-body">
+                                    <h2 class="card-title font-bold">Null:</h2>
+                                    <p class="space-y-2 text-lg font-normal">
+                                          <strong>null</strong> as an empty container or a placeholder for nothing.
+                                          In javaScript <strong>null</strong> is an intentional way of saying 'there is
+                                          nothing here' or 'this doesn't have a value'.It can be use to indicate
+                                          something should be empty or doesn't exist. There can use a
+                                          <strong>null</strong> value to saying explicitly there's no value here.
+                                          <strong>null</strong> can be use to reset a variable or object property.
+                                    </p>
+                              </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="card bg-base-100 shadow-xl flex-1">
+                              <div class="card-body">
+                                    <h2 class="card-title font-bold">Undifined:</h2>
+                                    <ul class="space-y-2 text-lg font-normal">
+                                          When a variable is declared but is not assigned a value than it automatically
+                                          set the value to <strong>undefined</strong>. It also given
+                                          <strong>undefined</strong> when the assign value is not meaningful. If a
+                                          function is called with some fewer arguments than the missing parameters are
+                                          assigned the value <strong>undefined</strong>. When we are trying to access an
+                                          object property that doesn't exist than it will returns
+                                          <strong>undefined</strong>.
+                                    </ul>
+                              </div>
+                        </div>
+                  </div>
+            </section>
+
+            <!-- Section 3 || What do you mean by REST API? -->
+            <section>
+                  <div>
+                        <h3 class="text-center text-3xl font-normal underline text-white mb-6">Q2: What do you mean by
+                              REST API?:</h3>
+                  </div>
+                  <div class="card bg-base-100 shadow-xl">
+                        <div class="card-body">
+                              <p class="text-lg font-normal">
+                                    REST API is a programming interface, which is used to create web services. It
+                                    defines the way
+                                    the web component sends and receives data to the server. The full name of the REST
+                                    API is
+                                    Representational State Transfer Application Programming Interface. It is a protocol
+                                    that
+                                    makes the journey of data and requests between web servers and clients nice and
+                                    easy.It is
+                                    use for standard HTTP conventions for sending and receiving data. It mainly focused
+                                    to
+                                    provide a simple and single interface for interacting with data resources, so that
+                                    data
+                                    can be created and modified in specific ways.
+                              </p>
+                        </div>
+                  </div>
+            </section>
       </main>
 
       <!-- JavaScript Links -->

@@ -1,4 +1,5 @@
 
+
 // Step 1 || Tab Bar
 const handleTabBar = async () => {
       const response = await fetch('https://openapi.programming-hero.com/api/videos/categories');
@@ -9,10 +10,11 @@ const handleTabBar = async () => {
       data.data.forEach(category => {
             const div = document.createElement('div');
             div.innerHTML = `
-            <a onclick="handleCategoryNews('${category.category_id}')" class="tab">${category.category}</a>
-            `;
+                        <a onclick="handleCategoryNews('${category.category_id}')" class="tab">${category.category}</a>
+                        `;
             tabContainer.appendChild(div);
       });
+
 };
 
 // Step 2 || News category || News Cards
@@ -36,8 +38,17 @@ const handleCategoryNews = async (categoryId) => {
       const newsContainer = document.getElementById('news-container');
       newsContainer.innerHTML = '';
 
+      
+
+      data.data.sort((a, b) => {
+            const viewsA = parseInt(a.others.views.replace(/[^0-9]/g, ''), 10);
+            const viewsB = parseInt(b.others.views.replace(/[^0-9]/g, ''), 10);
+            return viewsB - viewsA;
+      });
+
       data.data.forEach(categoryNews => {
 
+            // console.log(categoryNews);
             const div = document.createElement('div');
             div.innerHTML = `
             <div class="bg-base-100">
@@ -54,20 +65,21 @@ const handleCategoryNews = async (categoryId) => {
                                           <span class="text-[#171717b3] font-normal">${categoryNews.authors[0].profile_name}</span>
                                           ${categoryNews.authors[0].verified === true ? '<img src="./photos/fi_10629607.svg" alt="Verified Badge">' : ''}
                                     </div>
-                                    <p class="text-[14px] font-normal text-[#171717b3]">${categoryNews.others.views} <span>views</span></p>
+                                    <p class="text-[14px] font-normal text-[#171717b3]">${categoryNews.others.views.slice(0, 3)}<span>K views</span></p>
                               </div>
                         </div>
                   </div>
             </div>
             `;
 
+            // Posted Date 
             const postedDate = div.querySelector('#posted-date');
             const postedDateText = parseFloat(postedDate.innerText);
             const hours = Math.floor(postedDateText / 3600);
             const minutes = Math.floor((postedDateText % 3600) / 60);
             postedDate.innerText = `${hours} hours and ${minutes} minutes ago`;
-                  
-            if(postedDate.innerText === 'NaN hours and NaN minutes ago'){
+
+            if (postedDate.innerText === 'NaN hours and NaN minutes ago') {
                   postedDate.classList.add('hidden');
             }
 
@@ -75,12 +87,20 @@ const handleCategoryNews = async (categoryId) => {
       });
 };
 
-const handleMyBlog = () => {
-      window.location.href = 'blog.html';
-};
+
+
 
 
 
 
 handleTabBar();
 handleCategoryNews(1000);
+
+
+// My Blog Page link
+function handleMyBlog() {
+      window.location.href = "blog.html";
+};
+
+
+
