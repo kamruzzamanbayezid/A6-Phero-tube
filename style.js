@@ -10,7 +10,7 @@ const handleTabBar = async () => {
       data.data.forEach(category => {
             const div = document.createElement('div');
             div.innerHTML = `
-                        <a onclick="handleCategoryNews('${category.category_id}')" class="tab">${category.category}</a>
+                        <a onclick="handleCategoryNews('${category.category_id}')" class="btn px-6 text-[#252525b3] font-medium hover:bg-[#FF1F3D] hover:text-white">${category.category}</a>
                         `;
             tabContainer.appendChild(div);
       });
@@ -38,7 +38,7 @@ const handleCategoryNews = async (categoryId) => {
       const newsContainer = document.getElementById('news-container');
       newsContainer.innerHTML = '';
 
-      
+
 
       data.data.sort((a, b) => {
             const viewsA = parseInt(a.others.views.replace(/[^0-9]/g, ''), 10);
@@ -87,20 +87,8 @@ const handleCategoryNews = async (categoryId) => {
       });
 };
 
-
-
-
-
-
-
 handleTabBar();
 handleCategoryNews(1000);
-
-
-// My Blog Page link
-function handleMyBlog() {
-      window.location.href = "blog.html";
-};
 
 
 

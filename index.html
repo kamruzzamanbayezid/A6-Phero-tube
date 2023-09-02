@@ -21,11 +21,13 @@
                               <img src="./photos/Logo.png" alt="">
                         </div>
                         <div>
-                              <a onclick="handleSort()" class="btn font-medium bg-[#25252533] normal-case text-xl">Sort by view</a>
+                              <a onclick="handleSort()" class="btn font-medium bg-[#25252533] normal-case text-xl">Sort
+                                    by view</a>
                         </div>
                         <div>
-                              <button onclick="handleMyBlog()" class="btn text-white font-medium text-lg bg-[#FF1F3D] hover:bg-red-500">
-                                    Blog
+                              <button
+                                    class="btn text-white font-medium text-lg bg-[#FF1F3D] hover:bg-red-500">
+                                    <a href="./blog.html">Blog</a>
                               </button>
                         </div>
                   </div>
@@ -35,14 +37,15 @@
       <main class="mt-8">
             <!-- Tab Bar Container -->
             <div class="flex justify-center mb-8">
-                  <div id="tab-container" class="tabs tabs-boxed">
+                  <div id="tab-container" class=" flex flex-wrap items-center justify-center gap-6">
 
-                  </div> 
+                  </div>
             </div>
 
             <!-- Category News Container -->
-            <div id="news-container" class="news-container grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-center justify-center">
-                  
+            <div id="news-container"
+                  class="news-container grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-center justify-center">
+
             </div>
 
             <!-- No data Container -->
@@ -50,8 +53,8 @@
                   <div id="no-data-container">
 
                   </div>
-            </div> 
-            
+            </div>
+
       </main>
 
       <!-- JavaScript Links -->
