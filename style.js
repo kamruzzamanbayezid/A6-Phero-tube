@@ -53,8 +53,8 @@ const handleCategoryNews = async (categoryId, sortData) => {
             div.innerHTML = `
             <div class="bg-base-100">
                   <div class="relative">
-                        <img class="w-[312px] h-[200px] mx-auto" src="${categoryNews.thumbnail}" alt="Shoes" />
-                        <p class="text-white absolute top-[83%] left-[30%] bg-[#171717] w-fit px-1 rounded" id="posted-date">${categoryNews.others.posted_date}</p>
+                        <img class="w-[312px] h-[200px] rounded-lg mx-auto" src="${categoryNews.thumbnail}" alt="Shoes" />
+                        <p class="text-white absolute top-[83%] left-[50%] bg-[#171717] w-fit px-1 rounded" id="posted-date">${categoryNews.others.posted_date}</p>
                   </div>
                   <div class=" mt-5">
                         <div class="flex gap-3 md:pl-7 lg:pl-0 justify-between">
@@ -65,7 +65,7 @@ const handleCategoryNews = async (categoryId, sortData) => {
                                           <span class="text-[#171717b3] font-normal">${categoryNews.authors[0].profile_name}</span>
                                           ${categoryNews.authors[0].verified === true ? '<img src="./photos/fi_10629607.svg" alt="Verified Badge">' : ''}
                                     </div>
-                                    <p class="text-[14px] font-normal text-[#171717b3]">${categoryNews.others.views.slice(0, 3)}<span>K views</span></p>
+                                    <p class="text-[14px] font-normal text-[#171717b3]">${categoryNews.others.views} <span class="text-base">views</span></p>
                               </div>
                         </div>
                   </div>
@@ -77,9 +77,9 @@ const handleCategoryNews = async (categoryId, sortData) => {
             const postedDateText = parseFloat(postedDate.innerText);
             const hours = Math.floor(postedDateText / 3600);
             const minutes = Math.floor((postedDateText % 3600) / 60);
-            postedDate.innerText = `${hours} hours and ${minutes} minutes ago`;
+            postedDate.innerText = `${hours} hrs ${minutes} min ago`;
 
-            if (postedDate.innerText === 'NaN hours and NaN minutes ago') {
+            if (postedDate.innerText === 'NaN hrs NaN min ago') {
                   postedDate.classList.add('hidden');
             }
 
