@@ -1,4 +1,4 @@
-
+let fetchData;
 
 // Step 1 || Tab Bar
 const handleTabBar = async () => {
@@ -18,7 +18,8 @@ const handleTabBar = async () => {
 };
 
 // Step 2 || News category || News Cards
-const handleCategoryNews = async (categoryId) => {
+const handleCategoryNews = async (categoryId, sortData) => {
+
       const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
       const data = await response.json();
 
@@ -39,7 +40,7 @@ const handleCategoryNews = async (categoryId) => {
       newsContainer.innerHTML = '';
 
 
-
+      // Sort
       data.data.sort((a, b) => {
             const viewsA = parseInt(a.others.views.replace(/[^0-9]/g, ''), 10);
             const viewsB = parseInt(b.others.views.replace(/[^0-9]/g, ''), 10);
@@ -48,7 +49,6 @@ const handleCategoryNews = async (categoryId) => {
 
       data.data.forEach(categoryNews => {
 
-            // console.log(categoryNews);
             const div = document.createElement('div');
             div.innerHTML = `
             <div class="bg-base-100">
@@ -89,6 +89,4 @@ const handleCategoryNews = async (categoryId) => {
 
 handleTabBar();
 handleCategoryNews(1000);
-
-
 
